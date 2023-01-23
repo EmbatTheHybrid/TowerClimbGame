@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>InstructionsSheet</name>
+    <events>
+        <include>IntroSheet</include>
+        <event-block sid="111965654679935">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="637875592591311" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="794009032902822" type="GameInformation">
+                    <param id="0" name="Text">replace(GameInformation.Text, &quot;/n&quot;, newline)</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

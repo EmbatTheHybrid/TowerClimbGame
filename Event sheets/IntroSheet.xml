@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>IntroSheet</name>
+    <events>
+        <event-block sid="227277369559095">
+            <conditions>
+                <condition id="0" name="On clicked" sid="504878656315939" type="Start" />
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="330918101927778" type="System">
+                    <param id="0" name="Layout">&quot;Level1&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="803356285277923" type="Audio">
+                    <param id="0" name="Audio file">The_Old_Tower_Inn</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-21" name="Reset global variables" sid="818779587917514" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="893770994083373">
+            <conditions>
+                <condition id="0" name="On clicked" sid="929368341135577" type="Info" />
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="550642806820861" type="System">
+                    <param id="0" name="Layout">&quot;Instructions&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="953974564870204">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="134162999283544" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="555044849874496" type="Audio" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

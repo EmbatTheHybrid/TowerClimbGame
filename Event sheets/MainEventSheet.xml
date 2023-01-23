@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>MainEventSheet</name>
+    <events>
+        <variable constant="0" name="LayerScore" sid="817475051172900" static="0" type="number">0</variable>
+        <variable constant="0" name="Score" sid="969250569063295" static="0" type="number">0</variable>
+        <event-group description="" sid="247398874599596" title="Player">
+            <sub-events>
+                <event-block sid="899020905165777">
+                    <conditions>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="703072971887227" type="Player" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="702324206054022" type="Player">
+                            <param id="0" name="Instance variable">Attacking</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="122941081482444" type="Player">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="303703808088477" type="Player">
+                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="663245373933514">
+                    <conditions>
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="984690085573897" type="Player" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="582386508879884" type="Player">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="791296127886307" type="Player">
+                            <param id="0" name="Instance variable">Attacking</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="823051029591923" type="Player">
+                            <param id="0" name="Instance variable">Teleporting</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="848834793667902" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="888893653383293" type="Player">
+                            <param id="0" name="Max Speed">Self.MaxSpeed</param>
+                        </action>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="517695874109046" type="Player">
+                            <param id="0" name="Acceleration">Self.Acceleration</param>
+                        </action>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="522444382779284" type="Player">
+                            <param id="0" name="Jump strength">Self.JumpStrength</param>
+                        </action>
+                        <action behavior="Platform" id="0" name="Set ignoring input" sid="634804734213446" type="Player">
+                            <param id="0" name="Input">0</param>
+                        </action>
+                        <action behavior="Flash" id="1" name="Stop flashing" sid="295380366011615" type="Player" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="773736797112155">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="625199392721290" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="124739350294517" type="Player">
+                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="665776440803387">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="858759718611539" type="Player">
+                            <param id="0" name="Instance variable">Attacking</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="495725624863487" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="867940321934098" type="Player">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="275459241212763">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="338698084050864" type="Keyboard">
+                                    <param id="0" name="Key">39</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="345028149618118" type="Player">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="794047143432593">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="390521028542582" type="Keyboard">
+                                    <param id="0" name="Key">37</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="358294263778242" type="Player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="135807048777488">
+                    <conditions>
+                        <condition behavior="Platform" id="3" name="Is jumping" sid="470727104199403" type="Player" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="357396083999924" type="Player">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="635906559369548">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="159164228493804" type="Player">
+                                    <param id="0" name="Instance variable">Hurt</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="228808260674585" type="Player">
+                                    <param id="0" name="Animation">&quot;Jump&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="653818906030950">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="261854397020206" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="868085399594009" type="Player">
+                                    <param id="0" name="Animation">&quot;Hurt&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Platform" id="0" name="Set ignoring input" sid="904221736740397" type="Player">
+                                    <param id="0" name="Input">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="975939187306593">
+                    <conditions>
+                        <condition behavior="Platform" id="4" name="Is falling" sid="585730563315328" type="Player" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="868924883075846" type="Player">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="309810004204775">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="573551997586001" type="Player">
+                                    <param id="0" name="Instance variable">Hurt</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="107602557943301" type="Player">
+                                    <param id="0" name="Animation">&quot;Fall&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="252274094344610">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="984630559140902" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="611989690114768" type="Player">
+                                    <param id="0" name="Animation">&quot;Hurt&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="394489595118072">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="762697726804621" type="Keyboard">
+                            <param id="0" name="Key">90</param>
+                        </condition>
+                        <condition id="14" name="On tap" sid="157625404144277" type="Touch" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="852437949620317">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="832449501285241" type="Player">
+                                    <param id="0" name="Instance variable">Dead</param>
+                                </condition>
+                                <condition behavior="Platform" id="2" name="Is on floor" sid="348033677655694" type="Player" />
+                                <condition id="-8" name="Is boolean instance variable set" sid="961530202037187" type="Player">
+                                    <param id="0" name="Instance variable">CanAttack</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="361210856431284" type="Player">
+                                    <param id="0" name="Animation">&quot;Attack&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="752727136592670" type="Player">
+                                    <param id="0" name="Instance variable">Attacking</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="736003693189386" type="Player">
+                                    <param id="0" name="Instance variable">CanAttack</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="Platform" id="2" name="Set acceleration" sid="966105137570966" type="Player">
+                                    <param id="0" name="Acceleration">0</param>
+                                </action>
+                                <action behavior="Platform" id="4" name="Set jump strength" sid="204882168165639" type="Player">
+                                    <param id="0" name="Jump strength">0</param>
+                                </action>
+                                <action behavior="Platform" id="8" name="Set vector X" sid="344005768740983" type="Player">
+                                    <param id="0" name="Vector X">0</param>
+                                </action>
+                                <action id="25" name="Play at object" sid="575798597479557" type="Audio">
+                                    <param id="0" name="Audio file">SwordSlash</param>
+                                    <param id="1" name="Loop">0</param>
+                                    <param id="2" name="Volume">0</param>
+                                    <param id="3" name="Object">Player</param>
+                                    <param id="4" name="Inner angle">360</param>
+                                    <param id="5" name="Outer angle">360</param>
+                                    <param id="6" name="Outer gain">0</param>
+                                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="791672201695377">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="323884242561845" type="Player">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="553827944061056" type="Player">
+                            <param id="0" name="Acceleration">Self.Acceleration</param>
+                        </action>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="451810729084401" type="Player">
+                            <param id="0" name="Jump strength">Self.JumpStrength</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="953952545406583" type="Player">
+                            <param id="0" name="Instance variable">Attacking</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="872131226796599" type="System">
+                            <param id="0" name="Seconds">Player.AttackCooldown</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="846931640835478" type="Player">
+                            <param id="0" name="Instance variable">CanAttack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="763788189713753">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="402325679516604" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="735317829591299" type="Player">
+                            <param id="0" name="Instance variable">Attacking</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="310522888109115">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="307821213041170" type="Player">
+                                    <param id="0" name="Object">Goblin</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="8" name="Set vector X" sid="586002441253342" type="Player">
+                                    <param id="0" name="Vector X">700 * -Function.Call(&quot;GetSign&quot;, Goblin.X - Self.X)</param>
+                                </action>
+                                <action id="0" name="Call function" sid="460152588330540" type="Function">
+                                    <param id="0" name="Name">&quot;Hurt&quot;</param>
+                                    <param id="1" name="Parameter {n}">Goblin.Damage</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="603210776844680">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="786758771181890" type="Player">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="457450445949687">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="802847039596499" type="Player">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">1500</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="760398775055859" type="Function">
+                                    <param id="0" name="Name">&quot;Dead&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="685964566049975">
+                            <conditions>
+                                <condition behavior="Platform" id="2" name="Is on floor" sid="109884135702244" type="Player" />
+                                <condition id="-7" name="Compare instance variable" sid="702529809747551" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="826137694569417" type="Function">
+                                    <param id="0" name="Name">&quot;Dead&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="838980890711433">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="650334231427694" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="399005159005548" type="Player">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="927781481662188">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="618875409828430" type="Player">
+                                    <param id="0" name="Object">ExitDoor</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="255847811782681" type="ExitDoor">
+                                    <param id="0" name="Animation">&quot;Open&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="253460153870797" type="Player" />
+                                <action id="4" name="Set animation" sid="249710529140171" type="ExitDoor">
+                                    <param id="0" name="Animation">&quot;Close&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="559691270214002" type="System">
+                                    <param id="0" name="Seconds">1.5</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="696817211124892" type="System">
+                                    <param id="0" name="Variable">LayerScore</param>
+                                    <param id="1" name="Value">Score</param>
+                                </action>
+                                <action id="-43" name="Go to next/previous layout" sid="591571393816999" type="System">
+                                    <param id="0" name="Which">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="949177891593799">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="115525513824118" type="Player">
+                                    <param id="0" name="Object">NormalDoor</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="347519346408489" type="Player">
+                                    <param id="0" name="Instance variable">Teleporting</param>
+                                </condition>
+                                <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="184529269663393" type="Player" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="313714190408509">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="388577051891896" type="NormalDoor2">
+                                            <param id="0" name="Unique ID">NormalDoor.DoorToGo</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="354473693289383" type="Function">
+                                            <param id="0" name="Name">&quot;TeleportStart&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="994669019705034" type="NormalDoor">
+                                            <param id="0" name="Animation">&quot;Close&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="223471356055076" type="System">
+                                            <param id="0" name="Seconds">1.0</param>
+                                        </action>
+                                        <action id="-4" name="Set position to another object" sid="805921894964115" type="Player">
+                                            <param id="0" name="Object">NormalDoor2</param>
+                                            <param id="1" name="Image point (optional)">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="265007246557034" type="System">
+                                            <param id="0" name="Seconds">1.0</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="538163288774645" type="NormalDoor2">
+                                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="287447124232684" type="Function">
+                                            <param id="0" name="Name">&quot;TeleportEnd&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="920580549011527">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="186384200770561" type="Player">
+                                    <param id="0" name="Object">NormalDoor2</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="275340079022148" type="Player">
+                                    <param id="0" name="Instance variable">Teleporting</param>
+                                </condition>
+                                <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="498228128152741" type="Player" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="287073402791621">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="182225207284971" type="NormalDoor">
+                                            <param id="0" name="Unique ID">NormalDoor2.DoorToGo</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="223955581776784" type="Function">
+                                            <param id="0" name="Name">&quot;TeleportStart&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="689667385828643" type="NormalDoor2">
+                                            <param id="0" name="Animation">&quot;Close&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="933467137571664" type="System">
+                                            <param id="0" name="Seconds">1.0</param>
+                                        </action>
+                                        <action id="-4" name="Set position to another object" sid="259151311162853" type="Player">
+                                            <param id="0" name="Object">NormalDoor</param>
+                                            <param id="1" name="Image point (optional)">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="901847169167460" type="System">
+                                            <param id="0" name="Seconds">1.0</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="225755486380963" type="NormalDoor">
+                                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="395846312709400" type="Function">
+                                            <param id="0" name="Name">&quot;TeleportEnd&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="828510697353095" title="Enemy">
+            <sub-events>
+                <event-block sid="819131285580741">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="532771762146441" type="Goblin">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="471439831534971">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="633611534309459" type="Player">
+                                    <param id="0" name="Animation">&quot;Attack&quot;</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="545506534187252" type="Goblin">
+                                    <param id="0" name="Instance variable">Hurt</param>
+                                </condition>
+                                <condition disabled="1" id="3" name="Compare frame" sid="485175301345553" type="Player">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="8" name="Set vector X" sid="572864724584178" type="Goblin">
+                                    <param id="0" name="Vector X">500 * Function.Call(&quot;GetSign&quot;, Self.X - Player.X)</param>
+                                </action>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="609978797743325" type="Goblin">
+                                    <param id="0" name="Vector Y">-500</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="259232387891742" type="Goblin">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="823634755171398" type="Goblin">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Value">Player.Damage</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="894475586271000" type="Goblin">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="692278012826915" type="Goblin">
+                                    <param id="0" name="Instance variable">Hurt</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="219996449089766">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="385693390378453" type="System" />
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="965554993149673" type="Player">
+                                    <param id="0" name="Instance variable">Dead</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="428995178442864" type="Goblin">
+                                    <param id="0" name="Instance variable">Stabbing</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="689352249277839" type="Goblin">
+                                    <param id="0" name="Animation">&quot;Attack&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="946422377754984" type="Goblin">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="721406991790763">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="255120152532264" type="Goblin">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">Player.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Set mirrored" sid="213892563055008" type="Goblin">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="886969019300625">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="960317993244722" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Set mirrored" sid="902416803610820" type="Goblin">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="636832012164563">
+                    <conditions>
+                        <condition behavior="Platform" id="4" name="Is falling" sid="841669292558593" type="Goblin" />
+                        <condition behavior="Platform" id="3" name="Is jumping" sid="608023728383484" type="Goblin" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="394262422732141" type="Goblin">
+                            <param id="0" name="Instance variable">Stabbing</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="292873915537105" type="Goblin">
+                            <param id="0" name="Animation">&quot;Fall&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="708327990120287">
+                    <conditions>
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="448323535626965" type="Goblin" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="420736920402096" type="Goblin">
+                            <param id="0" name="Instance variable">Stabbing</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="410179978881287" type="Goblin">
+                            <param id="0" name="Animation">&quot;Walk&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="207115977113013" type="Goblin">
+                            <param id="0" name="Speed">Goblin.Speed</param>
+                        </action>
+                        <action behavior="Flash" id="1" name="Stop flashing" sid="268927800358370" type="Goblin" />
+                        <action id="-13" name="Set boolean" sid="411614985921634" type="Goblin">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="559700927669081">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="420076000196410" type="Goblin">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="747520262024528" type="Goblin">
+                            <param id="0" name="Instance variable">Stabbing</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="747901389925348" type="Goblin">
+                            <param id="0" name="Speed">Goblin.Speed</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="862871922790939">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="637233806263175" type="Goblin">
+                                    <param id="0" name="Instance variable">Direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="350526105180821" type="Goblin">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="748082816506886">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="679722482833272" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="336576344709084" type="Goblin">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="567191068255162">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="230792378052255" type="Goblin">
+                            <param id="0" name="Object">DirectionShift</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="147955024665603" type="Goblin">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">DirectionShift.Direction</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="173824441954597" type="Goblin">
+                            <param id="0" name="Instance variable">Stabbing</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="994994367814649" type="Goblin">
+                            <param id="0" name="Instance variable">Hurt</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="573946103384103" type="Goblin">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DirectionShift.Direction</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="143903791607411" type="Goblin">
+                            <param id="0" name="Speed">Goblin.Bullet.Speed * -1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="592014153282787" type="Goblin">
+                            <param id="0" name="Instance variable">Speed</param>
+                            <param id="1" name="Value">Goblin.Bullet.Speed</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="865456965720929">
+                            <conditions>
+                                <condition id="7" name="Is mirrored" sid="845261444435834" type="Goblin" />
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="935734786484808" type="Goblin">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="387017739004051">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="163820468829268" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="782739175062914" type="Goblin">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="976211376558901">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="406928228218139" type="Goblin" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="937817888175099" type="Goblin">
+                            <param id="0" name="Speed">Goblin.Bullet.Speed * Goblin.Direction</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="870037647162048">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="136377626996590" type="Goblin">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="259281678724161" type="Goblin" />
+                        <action id="0" name="Call function" sid="794104022626510" type="Function">
+                            <param id="0" name="Name">&quot;AddScore&quot;</param>
+                            <param id="1" name="Parameter {n}">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="323310139613687" title="Functions">
+            <sub-events>
+                <event-block sid="823853891728617">
+                    <conditions>
+                        <condition id="0" name="On function" sid="119708434844998" type="Function">
+                            <param id="0" name="Name">&quot;GetSign&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="810600040116985" type="Function">
+                            <param id="0" name="Value">Function.Param(0) / abs(Function.Param(0))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="211093856751635">
+                    <conditions>
+                        <condition id="0" name="On function" sid="246624113079396" type="Function">
+                            <param id="0" name="Name">&quot;Hurt&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="463938648822730" type="Player">
+                            <param id="0" name="Max Speed">700</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="138565301597049" type="Player">
+                            <param id="0" name="Vector Y">-500</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="108882070385256" type="Player">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="857494022219006" type="Player">
+                            <param id="0" name="Instance variable">Attacking</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="125600505080166" type="Player">
+                            <param id="0" name="Instance variable">CanAttack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="335243561857628" type="Audio">
+                            <param id="0" name="Audio file">Hurt</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-2</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="656515233095494" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="229222192315973" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">max(Player.Health - Function.Param(0), 0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="274003866682066" type="Health">
+                            <param id="0" name="Text">&quot;Health: &quot; &amp; Player.Health</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="162381914758965">
+                    <conditions>
+                        <condition id="0" name="On function" sid="533663740823800" type="Function">
+                            <param id="0" name="Name">&quot;AddScore&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="232861399370488" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">Function.Param(0)</param>
+                        </action>
+                        <action id="25" name="Play at object" sid="528101761415423" type="Audio">
+                            <param id="0" name="Audio file">ScoreUpdate</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">Player</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="614239516406442" type="Score">
+                            <param id="0" name="Text">&quot;Score: &quot; &amp; Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="832523369411890">
+                    <conditions>
+                        <condition id="0" name="On function" sid="944414598755960" type="Function">
+                            <param id="0" name="Name">&quot;Dead&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="537224668530423" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="374772741577221" type="Player">
+                            <param id="0" name="Animation">&quot;Dead&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="Platform" id="0" name="Set ignoring input" sid="436003240237199" type="Player">
+                            <param id="0" name="Input">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="727387307397195" type="Player">
+                            <param id="0" name="Instance variable">Dead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="724819542379066" type="System">
+                            <param id="0" name="Seconds">3</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="519963028314582" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">LayerScore</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="302323223566874" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="178750925273812">
+                    <conditions>
+                        <condition id="0" name="On function" sid="670965087291133" type="Function">
+                            <param id="0" name="Name">&quot;TeleportStart&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="378393399807355" type="Player">
+                            <param id="0" name="Instance variable">Teleporting</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="367168591091043" type="Player">
+                            <param id="0" name="Jump strength">0</param>
+                        </action>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="915493715917349" type="Player">
+                            <param id="0" name="Acceleration">0</param>
+                        </action>
+                        <action behavior="Platform" id="8" name="Set vector X" sid="437025196112764" type="Player">
+                            <param id="0" name="Vector X">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="671655245138385" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="233170335020021">
+                    <conditions>
+                        <condition id="0" name="On function" sid="797603456378284" type="Function">
+                            <param id="0" name="Name">&quot;TeleportEnd&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="608942881719034" type="Player">
+                            <param id="0" name="Jump strength">Self.JumpStrength</param>
+                        </action>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="436724695969195" type="Player">
+                            <param id="0" name="Acceleration">Self.Acceleration</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="175681190225383" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="599240939789521" type="Player">
+                            <param id="0" name="Instance variable">Teleporting</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="971546884941518" title="KeyDoor">
+            <sub-events>
+                <event-block sid="447423884016003">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="241600667237766" type="Key">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                        <condition id="2" inverted="1" name="Is playing" sid="966107813686127" type="Player">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="180006745548310" type="Key" />
+                        <action id="4" name="Set animation" sid="968744029402010" type="ExitDoor">
+                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="352078532976244" type="Function">
+                            <param id="0" name="Name">&quot;AddScore&quot;</param>
+                            <param id="1" name="Parameter {n}">50</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="709411172585584" title="Misc">
+            <sub-events>
+                <event-block sid="836639518604538">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="855941136851456" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="274338638046831" type="Score">
+                            <param id="0" name="Text">&quot;Score: &quot; &amp; Score</param>
+                        </action>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="331678898742972" type="Player">
+                            <param id="0" name="Acceleration">Player.Acceleration</param>
+                        </action>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="840686488507116" type="Player">
+                            <param id="0" name="Max Speed">Player.MaxSpeed</param>
+                        </action>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="472727311005531" type="Player">
+                            <param id="0" name="Jump strength">Player.JumpStrength</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

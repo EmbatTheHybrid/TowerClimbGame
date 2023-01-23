@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>BossSheet</name>
+    <events>
+        <include>MainEventSheet</include>
+        <event-group description="" sid="313323982982769" title="Boss">
+            <sub-events>
+                <event-block any="1" sid="494211740689265">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="467125734807576" type="Boss">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="485466154174367">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="301563314536544" type="Boss">
+                                    <param id="0" name="Instance variable">Dead</param>
+                                </condition>
+                                <condition behavior="Platform" id="2" name="Is on floor" sid="855511113175611" type="Boss" />
+                                <condition id="-8" name="Is boolean instance variable set" sid="263593795364691" type="Boss">
+                                    <param id="0" name="Instance variable">CanAttack</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="237158660552591" type="Boss">
+                                    <param id="0" name="Animation">&quot;Attack&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="733646520470834" type="Boss">
+                                    <param id="0" name="Instance variable">Attacking</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="719146484888970" type="Boss">
+                                    <param id="0" name="Instance variable">CanAttack</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="Platform" id="2" name="Set acceleration" sid="536207072685460" type="Boss">
+                                    <param id="0" name="Acceleration">0</param>
+                                </action>
+                                <action behavior="Platform" id="4" name="Set jump strength" sid="287361514628804" type="Boss">
+                                    <param id="0" name="Jump strength">0</param>
+                                </action>
+                                <action behavior="Platform" id="8" name="Set vector X" sid="960970763227758" type="Boss">
+                                    <param id="0" name="Vector X">0</param>
+                                </action>
+                                <action id="25" name="Play at object" sid="563194572183777" type="Audio">
+                                    <param id="0" name="Audio file">SwordSlash</param>
+                                    <param id="1" name="Loop">0</param>
+                                    <param id="2" name="Volume">0</param>
+                                    <param id="3" name="Object">Boss</param>
+                                    <param id="4" name="Inner angle">360</param>
+                                    <param id="5" name="Outer angle">360</param>
+                                    <param id="6" name="Outer gain">0</param>
+                                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="851169660920303">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="916202701468165" type="Boss">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="419105335366627">
+                            <conditions>
+                                <condition behavior="Platform" id="2" name="Is on floor" sid="750035672244900" type="Boss" />
+                                <condition id="-7" name="Compare instance variable" sid="718777548922519" type="Boss">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="963436705191907" type="Function">
+                                    <param id="0" name="Name">&quot;BossDead&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="942198114073290">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="705138831919565" type="Boss">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="393946381953143" type="Boss">
+                            <param id="0" name="Acceleration">Self.Acceleration</param>
+                        </action>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="500261448990893" type="Boss">
+                            <param id="0" name="Jump strength">Self.JumpStrength</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="264716364968584" type="Boss">
+                            <param id="0" name="Instance variable">Attacking</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="151513160165369" type="System">
+                            <param id="0" name="Seconds">Boss.AttackCooldown</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="444712479844106" type="Boss">
+                            <param id="0" name="Instance variable">CanAttack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="773650742030952">
+                    <conditions>
+                        <condition behavior="Platform" id="4" name="Is falling" sid="788470029015537" type="Boss" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="741935044662033" type="Boss">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="771606167449434">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="655633661750747" type="Boss">
+                                    <param id="0" name="Instance variable">Hurt</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="827452823157140" type="Boss">
+                                    <param id="0" name="Animation">&quot;Fall&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="965709274972996">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="844143498246138" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="472176319943303" type="Boss">
+                                    <param id="0" name="Animation">&quot;Hurt&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="235650091092076">
+                    <conditions>
+                        <condition behavior="Platform" id="3" name="Is jumping" sid="101113369711979" type="Boss" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="154320301330454" type="Boss">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="408954687176266">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="944502861433644" type="Boss">
+                                    <param id="0" name="Instance variable">Hurt</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="999412275621157" type="Boss">
+                                    <param id="0" name="Animation">&quot;Jump&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="796213417956195">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="874111198198168" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="776249083512586" type="Boss">
+                                    <param id="0" name="Animation">&quot;Hurt&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="380932660308175">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="616508119239736" type="Boss">
+                            <param id="0" name="Instance variable">Attacking</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="254060618504130" type="Boss">
+                            <param id="0" name="Instance variable">Hurt</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="245889090090046" type="Boss">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="308179754910993" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="479341028137251">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="232417164122130" type="Boss">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="X co-ordinate">Player.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="116251615885195" type="Boss">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="521724282653885" type="Boss">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="702479031649585">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="642521469874697" type="Boss">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="X co-ordinate">Player.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="854017573214006" type="Boss">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="993569433258601" type="Boss">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="243835132692387">
+                    <conditions>
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="737904788356258" type="Boss" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="456199189869018" type="Boss">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="908280122689981" type="Boss">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="387904952562634" type="Boss">
+                            <param id="0" name="Acceleration">Self.Acceleration</param>
+                        </action>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="263614229241755" type="Boss">
+                            <param id="0" name="Max Speed">Self.MaxSpeed</param>
+                        </action>
+                        <action behavior="Flash" id="1" name="Stop flashing" sid="389421030445157" type="Boss" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="194178957042867">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="797879044065427" type="Boss" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="103888956477087" type="Boss">
+                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="944982852404974">
+                    <conditions>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="417358635398499" type="Boss" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="917799382427750" type="Boss">
+                            <param id="0" name="Instance variable">Attacking</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="860012637872748" type="Boss">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="878521503280626" type="Boss">
+                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="992287922577624">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="693856035561957" type="Boss">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="365799441423801" type="Player">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="692675460945839" type="Boss">
+                            <param id="0" name="Instance variable">Hurt</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="127481520557803" type="Boss">
+                            <param id="0" name="Instance variable">Dead</param>
+                        </condition>
+                        <condition id="3" name="Compare frame" sid="138562868188591" type="Player">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="985202982568830" type="Boss">
+                            <param id="0" name="Max Speed">700</param>
+                        </action>
+                        <action behavior="Platform" id="8" name="Set vector X" sid="689947934423265" type="Boss">
+                            <param id="0" name="Vector X">700 * -Function.Call(&quot;GetSign&quot;, Player.X - Self.X)</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="719289307806566" type="Boss">
+                            <param id="0" name="Vector Y">-500</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="677386461487205" type="Boss">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="235123667021346" type="Boss">
+                            <param id="0" name="Instance variable">Attacking</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="415077482362704" type="Boss">
+                            <param id="0" name="Instance variable">CanAttack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="249784405873999" type="Boss">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="315815005048140" type="Boss">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">max(Boss.Health - Player.Damage, 0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="105002206924649" type="BossHealth">
+                            <param id="0" name="Text">&quot;Boss Health: &quot; &amp; Boss.Health</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="735857481880256" title="PlayerHitting">
+            <sub-events>
+                <event-block sid="523005777672696">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="937035101092919" type="Player">
+                            <param id="0" name="Object">Boss</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="862532398872652" type="Boss">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="525747233966004" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                        </condition>
+                        <condition id="3" name="Compare frame" sid="371292265726010" type="Boss">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="8" name="Set vector X" sid="452081306864290" type="Player">
+                            <param id="0" name="Vector X">700 * -Function.Call(&quot;GetSign&quot;, Boss.X - Self.X)</param>
+                        </action>
+                        <action id="0" name="Call function" sid="312464282535986" type="Function">
+                            <param id="0" name="Name">&quot;Hurt&quot;</param>
+                            <param id="1" name="Parameter {n}">Boss.Damage</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="808371226077566" title="BossMisc">
+            <sub-events>
+                <event-block sid="212983507170582">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="498317733483019" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="595872070055907" type="BossHealth">
+                            <param id="0" name="Text">&quot;Boss Health: &quot; &amp; Boss.Health</param>
+                        </action>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="442915533516560" type="Boss">
+                            <param id="0" name="Acceleration">Boss.Acceleration</param>
+                        </action>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="822035947254874" type="Boss">
+                            <param id="0" name="Max Speed">Boss.MaxSpeed</param>
+                        </action>
+                        <action behavior="Platform" id="4" name="Set jump strength" sid="886429212422270" type="Boss">
+                            <param id="0" name="Jump strength">Boss.JumpStrength</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="291562461259573" title="BossFunctions">
+            <sub-events>
+                <event-block sid="694395667719295">
+                    <conditions>
+                        <condition id="0" name="On function" sid="820106390540019" type="Function">
+                            <param id="0" name="Name">&quot;BossDead&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="117796708962882" type="Boss">
+                            <param id="0" name="Animation">&quot;Dead&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="722541222561484" type="Boss">
+                            <param id="0" name="Instance variable">Dead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="421950310012955" type="Function">
+                            <param id="0" name="Name">&quot;AddScore&quot;</param>
+                            <param id="1" name="Parameter {n}">100</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="644384396500158" type="System">
+                            <param id="0" name="Seconds">3</param>
+                        </action>
+                        <action id="-43" name="Go to next/previous layout" sid="875548791490685" type="System">
+                            <param id="0" name="Which">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
