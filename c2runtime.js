@@ -18371,7 +18371,7 @@ cr.plugins_.Button = function(runtime)
 		}
 		else
 			this.inputElem.value = this.properties[1];
-		this.elem.title = this.properties[2];
+		this.elem.title = "Tower Climb";
 		this.inputElem.disabled = (this.properties[4] === 0);
 		this.autoFontSize = (this.properties[5] !== 0);
 		this.element_hidden = false;
